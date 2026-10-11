@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Galaxy - Artificial Intelligence and Machine Learning</title>
+<style>
+*{box-sizing:border-box;scroll-behavior:smooth}
+body{margin:0;font-family:Arial,sans-serif;background:#080d20;color:#fff}
+header{background:#151d38;padding:16px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px}
+.logo{color:#4deaff;font-size:22px;font-weight:bold}
+nav{display:flex;flex-wrap:wrap;gap:12px}
+nav a{color:white;text-decoration:none;font-size:13px}
+nav a:hover{color:#4deaff}
+button{background:linear-gradient(90deg,#765cff,#00cce8);border:0;color:white;padding:12px 18px;border-radius:9px;cursor:pointer;font-weight:bold}
+input,textarea{width:100%;padding:12px;margin:7px 0 15px;background:#0a1128;border:1px solid #45557b;border-radius:8px;color:white}
+label{font-size:14px}
+.login{min-height:100vh;display:flex;justify-content:center;align-items:center;padding:20px;background:radial-gradient(circle at top,#293e7c,#080d20 65%)}
+.loginbox{width:100%;max-width:420px;padding:28px;background:#151e38;border:1px solid #40517d;border-radius:20px}
+.loginbox h1{font-size:35px}
+.gradient{background:linear-gradient(90deg,#4deaff,#c19aff);background-clip:text;-webkit-background-clip:text;color:transparent}
+.muted{color:#b7c3dd}
+main{max-width:1100px;margin:auto;padding:20px}
+.hero{display:grid;grid-template-columns:1.2fr .8fr;gap:25px;align-items:center;padding:55px 0}
+.hero h1{font-size:clamp(35px,6vw,58px);line-height:1.15}
+.hero p{color:#b7c3dd}
+.visual{background:linear-gradient(145deg,#22366c,#281d48);border:1px solid #52649b;border-radius:25px;padding:35px;text-align:center}
+.brain{font-size:95px}
+section{margin:45px 0;scroll-margin-top:20px}
+h2{font-size:29px}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:15px}
+.card,.stat{background:#151e38;border:1px solid #2f3e63;padding:20px;border-radius:15px}
+.card h3{color:#65eaff}
+.card p{color:#bdc8df;font-size:14px}
+.icon{font-size:30px}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.stat strong{font-size:25px;color:#4deaff;display:block}
+.tag{display:inline-block;background:#283657;padding:5px 10px;border-radius:7px;font-size:12px;margin:4px}
+.demo{background:#151e38;padding:22px;border-radius:15px;border:1px solid #35466e}
+.result{background:#091126;padding:15px;border-radius:8px;margin-top:12px;color:#66eeff;min-height:45px}
+.projects{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+.member{text-align:center}
+.avatar{background:linear-gradient(135deg,#4deaff,#a887ff);color:#10152c;border-radius:50%;width:60px;height:60px;display:flex;align-items:center;justify-content:center;margin:auto;font-size:22px;font-weight:bold}
+.prn{color:#65eaff;font-size:12px;overflow-wrap:anywhere}
+footer{text-align:center;background:#141c33;padding:25px;color:#b7c3dd}
+#dashboard{display:none}
+#err{color:#ffb6c2}
+@media(max-width:700px){
+.hero{grid-template-columns:1fr;padding:30px 0}
+.grid,.stats,.projects{grid-template-columns:1fr}
+header{justify-content:center}
+nav{justify-content:center}
+.brain{font-size:70px}
+}
+</style>
+</head>
+<body>
+
+<div class="login" id="login">
+<div class="loginbox">
+<div class="logo">✦ AI GALAXY</div>
+<h1 class="gradient">Explore the Future</h1>
+<p class="muted">Artificial Intelligence and Machine Learning</p>
+<form id="loginForm">
+<label>Student Name</label>
+<input id="studentName" placeholder="Enter your name" required>
+<label>PRN Number</label>
+<input id="studentPRN" placeholder="Enter your PRN" required>
+<button type="submit" style="width:100%">Login to Website →</button>
+<p id="err"></p>
+</form>
+<p class="muted" style="font-size:12px">Academic project demo login only.</p>
+</div>
+</div>
+
+<div id="dashboard">
+<header>
+<div class="logo">✦ AI GALAXY</div>
+<nav>
+<a href="#home">Home</a>
+<a href="#learn">Learn AI</a>
+<a href="#applications">Applications</a>
+<a href="#demo">AI Demo</a>
+<a href="#projects">Projects</a>
+<a href="#team">Team</a>
+</nav>
+<button onclick="logout()">Logout</button>
+</header>
+
+<main>
+<section class="hero" id="home">
+<div>
+<span class="tag">DIGITAL TECHNOLOGY PROJECT</span>
+<h1>Discover the Power of <span class="gradient">AI & Machine Learning</span></h1>
+<p>Artificial Intelligence helps computers perform intelligent tasks. Machine Learning helps computers learn from data and improve their performance.</p>
+<br>
+<a href="#learn"><button>Start Learning →</button></a>
+<p id="welcome" class="muted"></p>
+</div>
+<div class="visual">
+<div class="brain">🧠</div>
+<h2 class="gradient">Think. Learn. Innovate.</h2>
+<p class="muted">Building a smarter digital world</p>
+<div class="tag">Artificial Intelligence</div>
+<div class="tag">Machine Learning</div>
+</div>
+</section>
+
+<div class="stats">
+<div class="stat"><strong>AI</strong><span>Artificial Intelligence</span></div>
+<div class="stat"><strong>ML</strong><span>Machine Learning</span></div>
+<div class="stat"><strong>DL</strong><span>Deep Learning</span></div>
+</div>
+
+<section id="learn">
+<h2>📚 Learn the Concepts</h2>
+<p class="muted">Understand the technologies that power intelligent systems.</p>
+<div class="grid">
+<div class="card">
+<div class="icon">🤖</div>
+<h3>Artificial Intelligence</h3>
+<p>AI is a technology that enables computers to perform tasks that usually require human intelligence.</p>
+<p><b>Example:</b> Virtual assistants and chatbots.</p>
+<div class="tag">Intelligence</div>
+</div>
+<div class="card">
+<div class="icon">📊</div>
+<h3>Machine Learning</h3>
+<p>ML is a part of AI that enables computers to learn patterns from data and make predictions.</p>
+<p><b>Example:</b> Movie recommendations.</p>
+<div class="tag">Learning from data</div>
+</div>
+<div class="card">
+<div class="icon">🧠</div>
+<h3>Deep Learning</h3>
+<p>Deep Learning uses neural networks with multiple layers to learn complex patterns.</p>
+<p><b>Example:</b> Image and speech recognition.</p>
+<div class="tag">Neural networks</div>
+</div>
+</div>
+</section>
+
+<section id="applications">
+<h2>🌍 Real-World Applications</h2>
+<p class="muted">AI and ML are used in many areas of everyday life.</p>
+<div class="grid">
+<div class="card"><div class="icon">🏥</div><h3>Healthcare</h3><p>Helps analyse medical images and support healthcare professionals.</p></div>
+<div class="card"><div class="icon">🎓</div><h3>Education</h3><p>Provides learning support, practice questions and personalised study recommendations.</p></div>
+<div class="card"><div class="icon">🏦</div><h3>Banking</h3><p>Helps detect unusual transactions and identify possible fraud.</p></div>
+<div class="card"><div class="icon">🚗</div><h3>Transportation</h3><p>Supports traffic prediction, route planning and driver assistance.</p></div>
+<div class="card"><div class="icon">🛒</div><h3>Online Shopping</h3><p>Recommends products based on shopping activity and preferences.</p></div>
+<div class="card"><div class="icon">🎙️</div><h3>Virtual Assistants</h3><p>Understands voice commands and answers questions.</p></div>
+</div>
+</section>
+
+<section id="demo">
+<h2>✨ Interactive AI Demo</h2>
+<p class="muted">Try this simple rule-based text analyser. It is an educational demonstration, not a trained AI model.</p>
+<div class="demo">
+<label>Enter a sentence</label>
+<textarea id="userText" rows="3" placeholder="Example: I love learning artificial intelligence"></textarea>
+<button onclick="analyseText()">Analyse Text</button>
+<div class="result" id="result">Your result will appear here.</div>
+</div>
+</section>
+
+<section id="projects">
+<h2>💡 AI Project Ideas</h2>
+<div class="projects">
+<div class="card"><h3>01. Smart Chatbot</h3><p>Create a chatbot that answers frequently asked questions.</p></div>
+<div class="card"><h3>02. Movie Recommendation</h3><p>Recommend movies using a user's favourite genres.</p></div>
+<div class="card"><h3>03. Spam Message Detector</h3><p>Explore how machine learning can classify messages.</p></div>
+<div class="card"><h3>04. Image Classifier</h3><p>Build a project that categorises images using a trained model.</p></div>
+</div>
+</section>
+
+<section id="roadmap">
+<h2>🚀 Learning Roadmap</h2>
+<div class="grid">
+<div class="card"><h3>Step 1</h3><p>Learn Python programming basics.</p></div>
+<div class="card"><h3>Step 2</h3><p>Study mathematics, statistics and data handling.</p></div>
+<div class="card"><h3>Step 3</h3><p>Practise machine learning concepts and small projects.</p></div>
+</div>
+</section>
+
+<section id="team">
+<h2>👨‍💻 Our Project Team</h2>
+<p class="muted">Artificial Intelligence and Machine Learning</p>
+<div class="grid">
+<div class="card member"><div class="avatar">MP</div><h3>M. Prashanth</h3><p class="prn">PRN: 250105231511</p></div>
+<div class="card member"><div class="avatar">NS</div><h3>N. Surendra</h3><p class="prn">PRN: 250105231223</p></div>
+<div class="card member"><div class="avatar">RN</div><h3>R. Nithin</h3><p class="prn">PRN: 250105231726</p></div>
+<div class="card member"><div class="avatar">SK</div><h3>S. Karthik Reddy</h3><p class="prn">PRN: 250105231187</p></div>
+<div class="card member"><div class="avatar">VG</div><h3>Project Guide</h3><p>Ms. Vanshika Gupta Madam</p></div>
+</div>
+</section>
+
+<section>
+<h2>🎯 Conclusion</h2>
+<div class="card">
+<p>Artificial Intelligence and Machine Learning are important technologies in the modern world. They help people analyse data, automate tasks and solve problems. Learning Python, mathematics and machine learning can help students build useful projects and prepare for future careers.</p>
+</div>
+</section>
+</main>
+
+<footer>
+<div class="logo">✦ AI GALAXY</div>
+<p>Artificial Intelligence and Machine Learning</p>
+<p>Created by M. Prashanth and Team</p>
+<p>Guided by Ms. Vanshika Gupta Madam</p>
+<p>© 2026 Student Academic Project</p>
+</footer>
+</div>
+
+<script>
+const loginForm=document.getElementById("loginForm");
+
+loginForm.addEventListener("submit",function(event){
+ event.preventDefault();
+
+ const name=document.getElementById("studentName").value.trim();
+ const prn=document.getElementById("studentPRN").value.trim();
+
+ if(!name||!prn){
+  document.getElementById("err").textContent="Please enter your name and PRN.";
+  return;
+ }
+
+ document.getElementById("login").style.display="none";
+ document.getElementById("dashboard").style.display="block";
+ document.getElementById("welcome").textContent="Welcome, "+name+"! Your AI learning journey starts here.";
+ window.scrollTo(0,0);
+});
+
+function logout(){
+ document.getElementById("dashboard").style.display="none";
+ document.getElementById("login").style.display="flex";
+ document.getElementById("loginForm").reset();
+ document.getElementById("err").textContent="";
+ window.scrollTo(0,0);
+}
+
+function analyseText(){
+ const text=document.getElementById("userText").value.toLowerCase().trim();
+ const result=document.getElementById("result");
+
+ if(!text){
+  result.textContent="Please enter a sentence first.";
+  return;
+ }
+
+ const positive=["love","good","great","happy","excellent","wonderful","amazing","like"];
+ const negative=["bad","hate","sad","poor","terrible","angry","worst","dislike"];
+
+ let score=0;
+ positive.forEach(word=>{
+  if(text.includes(word)) score++;
+ });
+ negative.forEach(word=>{
+  if(text.includes(word)) score--;
+ });
+
+ if(score>0){
+  result.textContent="😊 Positive text detected! This is a simple rule-based result.";
+ }else if(score<0){
+  result.textContent="😟 Negative text detected! This is a simple rule-based result.";
+ }else{
+  result.textContent="😐 Neutral text or no recognised keywords were found.";
+ }
+}
+</script>
+
+</body>
+</html>
+<section id="demo">
+<h2>🤖 Interactive AI Laboratory</h2>
+<p>Try these 10 educational AI demonstrations!</p>
+
+<div class="grid">
+
+<div class="card">
+<h3>😊 1. Sentiment Analysis</h3>
+<input id="sent" placeholder="I love AI">
+<button onclick="sentiment()">Analyse</button>
+<div class="result" id="r1">Result appears here</div>
+</div>
+
+<div class="card">
+<h3>💬 2. AI Chatbot</h3>
+<input id="chat" placeholder="Ask about AI, ML or hello">
+<button onclick="chatbot()">Send</button>
+<div class="result" id="r2">Chatbot ready!</div>
+</div>
+
+<div class="card">
+<h3>🌐 3. Language Detector</h3>
+<input id="lang" placeholder="Hello / నమస్కారం / नमस्ते">
+<button onclick="language()">Detect</button>
+<div class="result" id="r3">Language result</div>
+</div>
+
+<div class="card">
+<h3>📩 4. Spam Detector</h3>
+<input id="spam" placeholder="Enter a sample message">
+<button onclick="spamCheck()">Check</button>
+<div class="result" id="r4">Spam result</div>
+</div>
+
+<div class="card">
+<h3>🎓 5. Grade Calculator</h3>
+<input id="marks" type="number" min="0" max="100" placeholder="Marks out of 100">
+<button onclick="grade()">Calculate</button>
+<div class="result" id="r5">Grade result</div>
+</div>
+
+<div class="card">
+<h3>🎬 6. Movie Recommendation</h3>
+<select id="genre">
+<option value="action">Action</option>
+<option value="comedy">Comedy</option>
+<option value="science">Science Fiction</option>
+<option value="animation">Animation</option>
+</select>
+<button onclick="movie()">Recommend</button>
+<div class="result" id="r6">Movie recommendation</div>
+</div>
+
+<div class="card">
+<h3>🔢 7. Number Classifier</h3>
+<input id="num" type="number" placeholder="Enter a whole number">
+<button onclick="numberCheck()">Classify</button>
+<div class="result" id="r7">Number result</div>
+</div>
+
+<div class="card">
+<h3>📝 8. Text Summarizer</h3>
+<textarea id="summary" rows="3" placeholder="Write a few sentences about AI"></textarea>
+<button onclick="summarize()">Summarize</button>
+<div class="result" id="r8">Summary appears here</div>
+</div>
+
+<div class="card">
+<h3>🧠 9. AI Knowledge Quiz</h3>
+<p id="question">Which is a subset of AI?</p>
+<button onclick="quiz('AI')">Machine Learning</button>
+<button onclick="quiz('wrong')">Keyboard</button>
+<div class="result" id="r9">Choose your answer</div>
+</div>
+
+<div class="card">
+<h3>🌦️ 10. Weather Suggestion</h3>
+<select id="weather">
+<option value="sunny">Sunny</option>
+<option value="rainy">Rainy</option>
+<option value="cold">Cold</option>
+</select>
+<button onclick="weatherTip()">Get Suggestion</button>
+<div class="result" id="r10">Suggestion appears here</div>
+</div>
+
+</div>
+</section>
+
+<style>
+.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:15px}
+.card{background:#151e38;border:1px solid #35466e;padding:18px;border-radius:14px;min-width:0}
+.card h3{color:#65eaff;margin-bottom:10px}
+.card input,.card select,.card textarea{width:100%;padding:11px;margin:8px 0;background:#090f23;color:white;border:1px solid #46577c;border-radius:8px}
+.card button{background:linear-gradient(90deg,#7660ff,#00cce8);color:white;border:0;padding:10px 12px;border-radius:8px;margin:4px 2px;cursor:pointer}
+.result{background:#090f23;color:#70efff;padding:12px;margin-top:12px;border-radius:8px;overflow-wrap:anywhere;min-height:42px}
+@media(max-width:600px){.grid{grid-template-columns:1fr}}
+</style>
+
+<script>
+function show(id,text){
+ document.getElementById(id).textContent=text;
+}
+
+function sentiment(){
+ let t=document.getElementById("sent").value.toLowerCase();
+ if(!t.trim())return show("r1","Please enter a sentence.");
+ let pos=["love","happy","great","good","excellent","amazing"];
+ let neg=["hate","sad","bad","poor","terrible","awful"];
+ let p=pos.some(w=>t.includes(w));
+ let n=neg.some(w=>t.includes(w));
+ show("r1",p&&!n?"😊 Positive sentiment detected!":n&&!p?"😟 Negative sentiment detected!":p&&n?"😐 Mixed sentiment detected!":"😐 Neutral or unknown sentiment.");
+}
+
+function chatbot(){
+ let t=document.getElementById("chat").value.toLowerCase();
+ if(!t.trim())return show("r2","Please type a message.");
+ let answer="I am a demo chatbot. Ask me about AI or ML!";
+ if(t.includes("hello")||t.includes("hi"))answer="Hello! Welcome to AI Galaxy. 👋";
+ else if(t.includes("your name"))answer="I am AI Galaxy, a simple rule-based chatbot.";
+ else if(t.includes("machine learning")||t.includes("what is ml"))answer="Machine Learning helps computers learn patterns from data.";
+ else if(t.includes("what is ai")||t.includes("artificial intelligence"))answer="AI helps computers perform tasks that normally require human intelligence.";
+ else if(t.includes("thank"))answer="You're welcome! Keep learning AI. 😊";
+ show("r2",answer);
+}
+
+function language(){
+ let t=document.getElementById("lang").value;
+ if(!t.trim())return show("r3","Please enter some text.");
+ if(/[అ-హ]/.test(t))show("r3","Likely Telugu text.");
+ else if(/[ऀ-ॿ]/.test(t))show("r3","Likely Hindi or another Devanagari-script language.");
+ else if(/[a-zA-Z]/.test(t))show("r3","Likely English or another Latin-script language.");
+ else show("r3","Language could not be identified.");
+}
+
+function spamCheck(){
+ let t=document.getElementById("spam").value.toLowerCase();
+ if(!t.trim())return show("r4","Please enter a message.");
+ let words=["claim prize","you won","free money","click here","urgent offer","win cash"];
+ let found=words.some(w=>t.includes(w));
+ show("r4",found?"⚠️ Possible spam keywords found.":"✅ No listed spam keywords found. This does not guarantee safety.");
+}
+
+function grade(){
+ let v=document.getElementById("marks").value;
+ if(v===""||Number(v)<0||Number(v)>100)return show("r5","Enter a number from 0 to 100.");
+ let m=Number(v);
+ show("r5",m>=90?"Grade: A+ 🌟":m>=80?"Grade: A":m>=70?"Grade: B":m>=60?"Grade: C":m>=40?"Grade: D":"Below passing marks. Keep practising!");
+}
+
+function movie(){
+ let g=document.getElementById("genre").value;
+ let list={
+ action:"Try an action-adventure movie such as The Incredibles.",
+ comedy:"Try a family comedy such as Mr. Bean's Holiday.",
+ science:"Try a science-fiction movie such as The Martian.",
+ animation:"Try an animated movie such as Finding Nemo."
+ };
+ show("r6","🎬 "+list[g]);
+}
+
+function numberCheck(){
+ let v=document.getElementById("num").value;
+ if(v===""||!Number.isInteger(Number(v)))return show("r7","Enter a whole number.");
+ let n=Number(v);
+ show("r7",n%2===0?"🔵 "+n+" is an even number.":"🟣 "+n+" is an odd number.");
+}
+
+function summarize(){
+ let t=document.getElementById("summary").value.trim();
+ if(!t)return show("r8","Enter some text first.");
+ let sentences=t.match(/[^.!?]+[.!?]?/g)||[t];
+ let summary=sentences.slice(0,2).join(" ").trim();
+ show("r8","Simple extractive summary: "+summary);
+}
+
+function quiz(answer){
+ if(answer==="AI")show("r9","✅ Correct! Machine Learning is a subset of AI.");
+ else show("r9","❌ Try again! Machine Learning is a subset of AI.");
+}
+
+function weatherTip(){
+ let w=document.getElementById("weather").value;
+ let tips={
+ sunny:"☀️ Suggestion: Consider sun protection and drink water.",
+ rainy:"🌧️ Suggestion: Consider carrying an umbrella.",
+ cold:"❄️ Suggestion: Consider wearing warm clothes."
+ };
+ show("r10",tips[w]);
+}
+</script>
